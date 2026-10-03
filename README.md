@@ -1,6 +1,6 @@
 # Documentación del Curso de CSS | Ejemplos Prácticos
 
-Demostración interactiva y laboratorio de maquetación web para el curso de **Programación Web - II Semestre 2026** de la **Universidad Politécnica de Nicaragua (UPOLI)**.
+Demostración interactiva y laboratorio de maquetación web para el curso de **Programación Web - CSS3, Flexbox y CSS Grid Layout**.
 
 ## 📌 Contenido del Curso
 
@@ -27,6 +27,3 @@ Demostración interactiva y laboratorio de maquetación web para el curso de **P
 - **HTML5 Semántico**
 - **CSS3 Puro** (Variables CSS, Flexbox, Grid, diseño responsivo, fuentes tipográficas Google Fonts)
 - **JavaScript Vanilla** (Copia rápida de snippets de código y scrollspy)
-
----
-*UPOLI • Programación Web*
