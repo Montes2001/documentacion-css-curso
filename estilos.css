@@ -1,0 +1,1080 @@
+/* ==========================================================================
+   LABORATORIO DE MAQUETACIÓN CSS - ESTILOS MODERNOS (MODERN STUDIO THEME)
+   ========================================================================== */
+
+/* --- RESET & VARIABLES GLOBALES --- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Paleta Principal de Acentos */
+    --primary: #4f46e5;
+    --primary-light: #6366f1;
+    --primary-dark: #3730a3;
+    --primary-soft: #eef2ff;
+    --primary-border: #c7d2fe;
+    --primary-hover: #4338ca;
+    
+    --accent-blue: #0284c7;
+    --accent-blue-soft: #e0f2fe;
+    --accent-green: #059669;
+    --accent-green-soft: #d1fae5;
+    --accent-amber: #d97706;
+    --accent-amber-soft: #fef3c7;
+    --accent-rose: #e11d48;
+    --accent-rose-soft: #ffe4e6;
+    
+    /* Superficies y Fondos (Modern Light Studio por defecto) */
+    --bg-page: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #ffffff;
+    --bg-surface-subtle: #f1f5f9;
+    --bg-sidebar: #ffffff;
+    
+    /* Tipografía y Textos */
+    --text-heading: #0f172a;
+    --text-body: #334155;
+    --text-muted: #64748b;
+    --text-light: #94a3b8;
+    
+    /* Bordes y Líneas */
+    --border-color: #e2e8f0;
+    --border-subtle: #f1f5f9;
+    --border-strong: #cbd5e1;
+    
+    /* Sombras Elevadas y Suaves */
+    --shadow-xs: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+    --shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.06), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+    --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.07), 0 2px 6px -2px rgba(15, 23, 42, 0.04);
+    --shadow-lg: 0 12px 24px -4px rgba(15, 23, 42, 0.08), 0 4px 10px -3px rgba(15, 23, 42, 0.03);
+    --shadow-xl: 0 20px 32px -6px rgba(15, 23, 42, 0.1), 0 8px 16px -4px rgba(15, 23, 42, 0.04);
+    
+    /* Fuentes */
+    --font-main: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+    --font-code: 'Fira Code', 'Courier New', monospace;
+    
+    /* Dimensiones */
+    --sidebar-width: 290px;
+    --header-height: 72px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 22px;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background-color: var(--bg-page);
+    color: var(--text-body);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    background-image: 
+        radial-gradient(at 10% 10%, rgba(99, 102, 241, 0.05) 0px, transparent 50%),
+        radial-gradient(at 90% 20%, rgba(14, 165, 233, 0.05) 0px, transparent 50%),
+        radial-gradient(at 50% 90%, rgba(16, 185, 129, 0.04) 0px, transparent 50%);
+    background-attachment: fixed;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* ==========================================================================
+   HEADER PRINCIPAL (FROSTED GLASS MODERNO)
+   ========================================================================== */
+.doc-header {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.header-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0.85rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Logotipo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    text-decoration: none;
+}
+
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    background: var(--primary-soft);
+    border: 1px solid var(--primary-border);
+    color: var(--primary);
+    border-radius: 14px;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.logo-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text h1 {
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text-heading);
+    line-height: 1.15;
+}
+
+.logo-text .subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+/* Acciones y Badges del Header */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.header-badges {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.32rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition: transform 0.15s ease;
+}
+
+.badge:hover {
+    transform: translateY(-1px);
+}
+
+.badge-html { 
+    background: var(--accent-rose-soft); 
+    color: var(--accent-rose); 
+    border: 1px solid rgba(225, 29, 72, 0.25); 
+}
+.badge-css { 
+    background: var(--accent-blue-soft); 
+    color: var(--accent-blue); 
+    border: 1px solid rgba(2, 132, 199, 0.25); 
+}
+.badge-flex { 
+    background: var(--accent-amber-soft); 
+    color: var(--accent-amber); 
+    border: 1px solid rgba(217, 119, 6, 0.25); 
+}
+.badge-grid { 
+    background: var(--accent-green-soft); 
+    color: var(--accent-green); 
+    border: 1px solid rgba(5, 150, 105, 0.25); 
+}
+
+/* ==========================================================================
+   LAYOUT PRINCIPAL (SIDEBAR FLOTANTE + CONTENIDO)
+   ========================================================================== */
+.doc-layout {
+    display: flex;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 1.8rem 2rem;
+    gap: 2rem;
+    min-height: calc(100vh - var(--header-height));
+    align-items: flex-start;
+}
+
+/* --- SIDEBAR FLOTANTE ESTILO TARJETA --- */
+.doc-sidebar {
+    width: var(--sidebar-width);
+    flex-shrink: 0;
+    position: sticky;
+    top: calc(var(--header-height) + 1.2rem);
+    max-height: calc(100vh - var(--header-height) - 2.5rem);
+    background: var(--bg-sidebar);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem 1.2rem;
+    box-shadow: var(--shadow-sm);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.nav-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-title {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    padding-left: 0.5rem;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.7rem 0.9rem;
+    color: var(--text-body);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link .nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-link:hover .nav-icon {
+    color: var(--primary);
+    transform: scale(1.1);
+}
+
+.nav-link.active .nav-icon {
+    color: var(--primary);
+}
+
+.nav-link:hover {
+    background-color: var(--bg-surface-subtle);
+    color: var(--text-heading);
+    transform: translateX(4px);
+}
+
+.nav-link.active {
+    background-color: var(--primary-soft);
+    color: var(--primary);
+    font-weight: 700;
+    border-color: var(--primary-border);
+    box-shadow: 0 2px 6px rgba(79, 70, 229, 0.08);
+}
+
+/* --- ÁREA PRINCIPAL DE CONTENIDO --- */
+.doc-content {
+    flex: 1;
+    min-width: 0; /* Evita que el contenedor desborde con elementos anchos */
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+.doc-section {
+    scroll-margin-top: 100px;
+}
+
+/* ==========================================================================
+   HERO BANNER (BIENVENIDA & MÉTRICAS)
+   ========================================================================== */
+.hero-section {
+    background: linear-gradient(135deg, #ffffff 0%, var(--bg-surface-subtle) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: 2.8rem;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero-pill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.9rem;
+    background: var(--primary-soft);
+    color: var(--primary);
+    border: 1px solid var(--primary-border);
+    border-radius: var(--radius-full);
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+}
+
+.hero-content h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--text-heading);
+    line-height: 1.25;
+    margin-bottom: 1rem;
+    max-width: 820px;
+}
+
+.hero-content p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 780px;
+    margin-bottom: 2rem;
+    line-height: 1.65;
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.2rem;
+}
+
+.stat-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    padding: 1.3rem 1.4rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xs);
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-border);
+}
+
+.stat-num {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   ENCABEZADOS DE SECCIÓN Y TARJETAS DE CONCEPTOS
+   ========================================================================== */
+.section-header {
+    margin-bottom: 1.8rem;
+}
+
+.section-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--primary-soft);
+    color: var(--primary);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.6rem;
+}
+
+.section-header h2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--text-heading);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.6rem;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    max-width: 820px;
+    line-height: 1.6;
+}
+
+.section-header code {
+    background: var(--bg-surface-subtle);
+    color: var(--primary);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-family: var(--font-code);
+    font-size: 0.85rem;
+    border: 1px solid var(--border-color);
+}
+
+/* Grilla de Conceptos Clave */
+.concepts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.4rem;
+    margin-bottom: 2rem;
+}
+
+.concept-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-xs);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.concept-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary) 0%, #a855f7 100%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.concept-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-border);
+}
+
+.concept-card:hover::before {
+    opacity: 1;
+}
+
+.concept-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--primary-soft);
+    color: var(--primary);
+    border: 1px solid var(--primary-border);
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+    transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.concept-card:hover .concept-icon {
+    background-color: var(--primary);
+    color: #ffffff;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+.concept-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 0.45rem;
+}
+
+.concept-card p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+}
+
+.concept-card code {
+    background: var(--primary-soft);
+    color: var(--primary);
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   VENTANA DE VISTA PREVIA (MOCKUP MODERNO DE NAVEGADOR WEB)
+   ========================================================================== */
+.preview-box {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 2rem;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.preview-header {
+    background: #f1f5f9;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.75rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* Botones de Ventana (Estilo Mac / Browser) */
+.window-dots {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+}
+
+.dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+}
+.dot.red { background-color: #f87171; border: 1px solid #ef4444; }
+.dot.yellow { background-color: #fbbf24; border: 1px solid #f59e0b; }
+.dot.green { background-color: #34d399; border: 1px solid #10b981; }
+
+.window-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.window-badge {
+    background: var(--bg-surface-subtle);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    font-family: var(--font-code);
+    font-size: 0.74rem;
+    font-weight: 600;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+}
+
+.preview-body {
+    padding: 1.5rem;
+    overflow-x: auto;
+    background-color: #f8fafc;
+}
+
+/* ==========================================================================
+   BLOQUES DE CÓDIGO (TEMA DEVELOPER STUDIO)
+   ========================================================================== */
+.code-block-container {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.code-header {
+    background: #161b22;
+    padding: 0.65rem 1.2rem;
+    border-bottom: 1px solid #30363d;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+    color: #8b949e;
+}
+
+.code-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.copy-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #c9d1d9;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.72rem;
+    font-family: var(--font-main);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+}
+
+.code-block {
+    padding: 1.3rem;
+    font-family: var(--font-code);
+    font-size: 0.86rem;
+    color: #e6edf3;
+    overflow-x: auto;
+    line-height: 1.55;
+}
+
+/* ==========================================================================
+   TABLA COMPARATIVA MODERNA
+   ========================================================================== */
+.table-container {
+    overflow-x: auto;
+    background: var(--bg-surface);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.comparison-table th {
+    background-color: var(--bg-surface-subtle);
+    padding: 1.1rem 1.4rem;
+    color: var(--text-heading);
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 700;
+    font-size: 0.84rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.comparison-table td {
+    padding: 1.1rem 1.4rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-body);
+    vertical-align: middle;
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table tr:hover td {
+    background-color: var(--bg-surface-subtle);
+}
+
+/* ==========================================================================
+   FOOTER INSTITUCIONAL / CURSO
+   ========================================================================== */
+.doc-footer {
+    border-top: 1px solid var(--border-color);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.doc-footer .university-tag {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+
+/* ==========================================================================
+   ESTILOS DE LAS DEMOSTRACIONES PRÁCTICAS DEL CURSO (PRESERVADOS FIELMENTE)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. DEMOSTRACIÓN CLASE 1 Y 2 (Floats y Maquetación Tradicional)
+   -------------------------------------------------------------------------- */
+.demo-clase12-wrapper {
+    background-color: #e5e7eb;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    border-radius: var(--radius-md);
+}
+
+.demo-clase12-wrapper #container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0px auto;
+    border: 1px solid black;
+    background-color: #ffffff;
+}
+
+.demo-clase12-wrapper header.c12-header {
+    background-color: red;
+    height: 100px;
+    width: 100%;
+    margin: 0px;
+    text-align: center;
+    line-height: 100px;
+    color: white;
+    border-bottom: 3px dashed black;
+}
+
+.demo-clase12-wrapper header.c12-header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+.demo-clase12-wrapper nav.c12-nav {
+    background: lightblue;
+    height: 50px;
+    border-bottom: 1px solid black;
+}
+
+.demo-clase12-wrapper nav.c12-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.demo-clase12-wrapper nav.c12-nav ul li {
+    float: left;
+    list-style: none;
+    margin: 10px;
+    line-height: 30px;
+}
+
+.demo-clase12-wrapper nav.c12-nav ul li a {
+    color: #0000ee;
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+.demo-clase12-wrapper .clearfix {
+    clear: both;
+}
+
+.demo-clase12-wrapper #content {
+    float: left;
+    width: calc(80% - 80px);
+    min-height: 400px;
+    background-color: green;
+    padding: 40px;
+    box-sizing: content-box;
+}
+
+.demo-clase12-wrapper aside.c12-aside {
+    float: left;
+    width: calc(20% - 20px);
+    background-color: orange;
+    min-height: 400px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    box-sizing: content-box;
+}
+
+.demo-clase12-wrapper aside.c12-aside h2 {
+    font-size: 1.4rem;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.demo-clase12-wrapper aside.c12-aside input[type="text"] {
+    width: 90%;
+    padding: 5px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+}
+
+.demo-clase12-wrapper aside.c12-aside input[type="submit"] {
+    padding: 5px 12px;
+    cursor: pointer;
+}
+
+.demo-clase12-wrapper footer.c12-footer {
+    background: black;
+    color: white;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+}
+
+.demo-clase12-wrapper footer.c12-footer p {
+    color: white;
+    margin: 0;
+}
+
+.demo-clase12-wrapper .article {
+    color: white;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.demo-clase12-wrapper .article:first-child {
+    border-top: 10px;
+    padding-top: 1px solid #eee;
+}
+
+.demo-clase12-wrapper .article h2 {
+    font-size: 25px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.demo-clase12-wrapper .article p {
+    color: white;
+}
+
+/* --------------------------------------------------------------------------
+   2. DEMOSTRACIÓN CLASE FLEXBOX
+   -------------------------------------------------------------------------- */
+.demo-flexbox-wrapper {
+    background-color: #fefce8;
+    padding: 30px 15px;
+    color: black;
+    border-radius: var(--radius-md);
+}
+
+.flex-demo-title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #1e293b;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.demo-flexbox-wrapper .flex-container {
+    display: flex;
+    border: 1px solid rgb(70, 69, 69);
+    background: #ccc;
+    padding: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    margin: 0 auto;
+    width: 90%;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+.demo-flexbox-wrapper .caja {
+    border: 1px solid rgb(70, 69, 69);
+    background-color: white;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    min-width: 120px;
+    height: 120px;
+    line-height: 1.3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+}
+
+.demo-flexbox-wrapper .c1 {
+    background-color: lightblue;
+    order: 1;
+    flex-grow: 5;
+    flex-basis: 50%;
+}
+
+.demo-flexbox-wrapper .c2 {
+    background-color: lightcoral;
+    order: 2;
+    flex-grow: 2;
+}
+
+.demo-flexbox-wrapper .c3 {
+    background-color: lightgreen;
+    order: 3;
+    flex-grow: 3;
+}
+
+.demo-flexbox-wrapper .c4 {
+    background-color: lightgoldenrodyellow;
+    order: 4;
+    flex-grow: 4;
+}
+
+/* --------------------------------------------------------------------------
+   3. DEMOSTRACIÓN CLASE GRID
+   -------------------------------------------------------------------------- */
+.demo-grid-wrapper {
+    background-color: #fff7ed;
+    padding: 30px 15px;
+    color: black;
+    border-radius: var(--radius-md);
+}
+
+.grid-demo-title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #1e293b;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+
+.demo-grid-wrapper .grid-layout {
+    width: 90%;
+    margin: 0 auto;
+    background-color: lightgreen;
+    padding: 20px;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 100px auto;
+    justify-content: stretch;
+}
+
+.demo-grid-wrapper .caja {
+    min-width: 120px;
+    height: 120px;
+    border: 4px solid black;
+    background-color: lightgray;
+    margin: 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.demo-grid-wrapper .caja1 {
+    grid-column: 1/4;
+    background-color: lightblue;
+    grid-area: 1 / 1 / 3 / 4;
+    height: auto;
+}
+
+.demo-grid-wrapper .caja2 {
+    grid-column: 1/3;
+}
+
+.demo-grid-wrapper .caja3 {
+    grid-column: 1/4;
+}
+
+.demo-grid-wrapper .caja4 {
+    grid-column: 3 / span 3;
+}
+
+
+/* ==========================================================================
+   DISEÑO ADAPTABLE (RESPONSIVE DESIGN)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .doc-layout {
+        flex-direction: column;
+        padding: 1.5rem 1rem;
+    }
+    
+    .doc-sidebar {
+        width: 100%;
+        max-height: none;
+        position: relative;
+        top: 0;
+    }
+    
+    .hero-section {
+        padding: 2rem 1.5rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .window-address-bar {
+        display: none;
+    }
+
+    .demo-clase12-wrapper #content,
+    .demo-clase12-wrapper aside.c12-aside {
+        float: none;
+        width: 100%;
+        min-height: auto;
+    }
+    
+    .concepts-grid {
+        grid-template-columns: 1fr;
+    }
+}
